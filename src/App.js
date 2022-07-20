@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
 
 function App() {
+  const [t, i18n] = useTranslation("global")
+  const [count, setCount] = useState(0)
 
   return (
-     
-<nav className="bg-black border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <div className=''>
+<nav className="bg-gray-400 border-white-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
   <div className="container flex flex-wrap justify-between items-center mx-auto">
     <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
       <span className="sr-only">Open main menu</span>
@@ -15,24 +18,63 @@ function App() {
     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
         <li>
-          <a href="#" className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+          <a href="#" className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white text-xl text-center" aria-current="page">Home</a>
         </li>
         <li>
-          <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+        <div onClick={() => { i18n.changeLanguage("en") }} className='hover:text-white text-gray-500 transition hover:animate-pulse font-semibold cursor-pointer text-xl text-center'>
+          {t("navbar.ingles")}
+      </div>
         </li>
         <li>
-          <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+        <div onClick={() => { i18n.changeLanguage("es") }} className='hover:text-white text-gray-500 transition hover:animate-pulse font-semibold cursor-pointer text-xl text-center'>
+        {t("navbar.espanol")}
+            </div>
         </li>
       </ul>
     </div>
   </div>
+  <div className='flex justify-end'>
+            <div className='mx-5 hover:text-white text-gray-500 transition hover:animate-pulse font-semibold cursor-pointer'>
+              LINKEDIN
+            </div>
+            <br></br>
+            <div className='mx-5 hover:text-white text-gray-500 transition hover:animate-pulse font-semibold cursor-pointer'>
+              TWITTER
+            </div>
+          </div>
 </nav>
+      
+
+      
+<div className='w-2/4' >
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <h2 className='text-4xl text-white font-extrabold text-xl text-center '>Jorge Emilio Rodriguez Valdes</h2>
+        <br></br>
+        <br></br>
+        <br></br>
+        <p className='text-xl text-center  text-gray-400 text-xl text-center'>{t("body.descripcion")}</p>
+        <br></br>
+        <br></br>
+        <button  onClick={()=>{setCount(count + 1)}} className="bg-green-500 hover:bg-green-700 text-white font-bold py-5 px-12 border border-green-700 roundedtext-xl">
+        {t("body.contador")}
+        </button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <p className=' text-white text-xl text-center'>{t("body.contador2")}: {count}</p>
+        <br></br>
+        <p className='text-xl text-center text-white'>{t("body.DescripcionTecnologias")}</p>
+      </div>
+      
+      <img className='rounded-full w-69 h-69 ' src="https://avatars.githubusercontent.com/u/67291907?s=400&u=39a17128bb11c0fcc890772c4465c4697cfabcf6&v=4" align="right" />
+      
+
+</div>
+
+
 
     
   );

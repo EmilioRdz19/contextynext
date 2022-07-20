@@ -1,1 +1,16 @@
-{"hello world":{"hello world":"hello world"}}
+{
+    "navbar":{
+        "inicio":"Home",
+        "ingles":"English",
+        "espanol":"Spanish"
+
+    },
+    "body":{
+        "nombre":"Jorge Emilio Rodriguez Valdes",
+        "descripcion":"My name is Jorge Emilio Rodriguez Valdes, I am an engineering student at the technological university of Aguascalientes, I like to go to the gym and play video games, I hope to be a great programmer at the end of my career.",
+        "tecnologias":"Javascript, Node.js, MySQL.",
+        "contador":"Count of Visit",
+        "contador2":"Number of Visits",
+        "DescripcionTecnologias":"Technologies I manage: Javascript, Node.js, MySQL."
+    }
+}
